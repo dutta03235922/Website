@@ -3,115 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avinash Dutta | Portfolio</title>
+    <title>Get In Touch | Avinash Dutta</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">AD<span>.</span></a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h3>Hello, I'm</h3>
-            <h1>Avinash Dutta</h1>
-            <p>Geomatics Engineering Student & GIS Enthusiast</p>
-            <!-- Replace 'sample-cv.pdf' with your actual uploaded CV file name -->
-            <a href="sample-cv.pdf" download="Avinash_Dutta_CV" class="btn">
-                <i class="fas fa-download"></i> Download CV
-            </a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
+    <section class="contact-section">
         <div class="container">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>I am an ambitious Geomatics Engineering student passionate about leveraging spatial data to solve real-world problems. My interests lie at the intersection of surveying, Remote Sensing (RS), Geographic Information Systems (GIS), and programming to build impactful mapping solutions.</p>
-                    <div class="skills">
-                        <h3>Skills & Tools</h3>
-                        <div class="skill-tags">
-                            <span>QGIS & ArcGIS</span>
-                            <span>Python (Spatial Libraries)</span>
-                            <span>Land Surveying</span>
-                            <span>Photogrammetry</span>
-                            <span>HTML / CSS / JS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="edu-section">
-        <div class="container">
-            <h2>Education & Details</h2>
-            <div class="edu-timeline">
-                <div class="edu-card">
-                    <h3>Bachelor in Geomatics Engineering</h3>
-                    <p class="institute">Kathmandu University</p>
-                    <p class="duration">2023 - Present</p>
-                    <p>Focusing on Geodesy, GIS analysis, satellite image processing, and digital mapping infrastructures.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Get In Touch</h2>
+            <h2 class="section-title">Get In Touch</h2>
             <div class="contact-grid">
-                <!-- Info -->
+                
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
+                    <h3>Contact Details</h3>
                     <p><i class="fas fa-envelope"></i> avinashdutta9719@gmail.com</p>
                     <p><i class="fas fa-phone"></i> +977 9829099719</p>
                     <p><i class="fas fa-map-marker-alt"></i> 28-Kilo, Dhulikhel, Nepal</p>
                 </div>
-                <!-- Form -->
+
                 <div class="contact-form-container">
-                    <form id="contact-form">
+                    <!-- Secure submission endpoint -->
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        
+                        <!-- Create a free key at web3forms.com and paste it here -->
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+                        
                         <div class="form-group">
-                            <input type="text" id="name" placeholder="Your Name" required>
+                            <label>Full Name</label>
+                            <input type="text" name="name" required placeholder="Your Name">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" placeholder="Your Email" required>
+                            <label>Email Address</label>
+                            <input type="email" name="email" required placeholder="your@email.com">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                            <label>Message</label>
+                            <textarea name="message" rows="5" required placeholder="Type your message here..."></textarea>
                         </div>
-                        <button type="submit" class="btn submit-btn">Send Message</button>
+                        
+                        <button type="submit" class="btn submit-btn" id="submit-btn">Send Message</button>
                     </form>
                     <div id="form-status" class="form-status"></div>
                 </div>
+
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Avinash Dutta. All rights reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
