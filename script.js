@@ -1,37 +1,43 @@
-// Mobile Navigation Toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.getElementById('nav-links');
+const form = document.getElementById('contact-form');
+const statusDiv = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
 
-mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Sending...";
+    statusDiv.innerText = "";
 
-// Close menu when a link is clicked (Mobile View)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+    })
+    .then(async (response) => {
+        let res = await response.json();
+        if (response.status == 200) {
+            statusDiv.style.color = "#16a34a";
+            statusDiv.innerText = "Thank you! Your message has been sent successfully.";
+            form.reset();
+        } else {
+            statusDiv.style.color = "#ef4444";
+            statusDiv.innerText = res.message;
+        }
+    })
+    .catch(error => {
+        statusDiv.style.color = "#ef4444";
+        statusDiv.innerText = "Something went wrong. Please try again later.";
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Message";
     });
-});
-
-// Contact Form Submission Handler
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevents page reload
-
-    // Fetch form data
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const statusDiv = document.getElementById('form-status');
-
-    // Simple validation feedback animation
-    if(name && email && message) {
-        statusDiv.style.color = "green";
-        statusDiv.innerText = `Thank you, ${name}! Your message has been sent successfully.`;
-        
-        // Reset the form field inputs
-        document.getElementById('contact-form').reset();
-    } else {
-        statusDiv.style.color = "red";
-        statusDiv.innerText = "Please fill out all fields before submitting.";
-    }
 });
