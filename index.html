@@ -4,328 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avinash Dutta | Portfolio</title>
-    <style>
-        /* --- CSS STYLING --- */
-        :root {
-            --primary-color: #2563eb;
-            --text-color: #333333;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            color: var(--text-color);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: var(--white);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Sections General */
-        section {
-            padding: 5rem 5% 3rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            padding-top: 0;
-        }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        #hero h1 span {
-            color: var(--primary-color);
-        }
-
-        #hero h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            color: #4b5563;
-        }
-
-        /* About / Info Section */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .info-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .info-card h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            border-bottom: 2px solid #eff6ff;
-            padding-bottom: 0.5rem;
-        }
-
-        .info-card ul {
-            list-style: none;
-        }
-
-        .info-card ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: var(--white);
-            border-radius: 8px;
-            margin-bottom: 5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            padding: 2rem 0;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 5px;
-            outline: none;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary-color);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0f172a;
-            color: var(--white);
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Breakpoint */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none; /* Simplification for pure CSS/JS responsive nav */
-            }
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-            section {
-                padding: 4rem 5% 2rem 5%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">AD.</div>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">AD<span>.</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <h2>Hello, I'm</h2>
-        <h1><span>Avinash Dutta</span></h1>
-        <h2>Computer Science & Information Technology Student</h2>
-        <!-- Download Link: Points to a placeholder filename 'resume.pdf' in the same directory -->
-        <a href="resume.pdf" download="Avinash_Dutta_CV.pdf" class="btn">Download CV</a>
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h3>Hello, I'm</h3>
+            <h1>Avinash Dutta</h1>
+            <p>Geomatics Engineering Student & GIS Enthusiast</p>
+            <!-- Replace 'sample-cv.pdf' with your actual uploaded CV file name -->
+            <a href="sample-cv.pdf" download="Avinash_Dutta_CV" class="btn">
+                <i class="fas fa-download"></i> Download CV
+            </a>
+        </div>
     </section>
 
-    <!-- About & Details Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am an ambitious student based in Dhulikhel, passionate about leveraging technology to solve real-world problems. Looking for opportunities to grow as a developer and collaborate on impactful projects.</p>
-        
-        <div class="info-grid">
-            <!-- Dynamic Personal Info -->
-            <div class="info-card">
-                <h3>Personal Information</h3>
-                <ul>
-                    <li><strong>Address:</strong> 28-Kilo, Dhulikhel</li>
-                    <li><strong>Email:</strong> avinashdutta9719@gmail.com</li>
-                    <li><strong>Phone:</strong> +977 9829099719</li>
-                </ul>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am an ambitious Geomatics Engineering student passionate about leveraging spatial data to solve real-world problems. My interests lie at the intersection of surveying, Remote Sensing (RS), Geographic Information Systems (GIS), and programming to build impactful mapping solutions.</p>
+                    <div class="skills">
+                        <h3>Skills & Tools</h3>
+                        <div class="skill-tags">
+                            <span>QGIS & ArcGIS</span>
+                            <span>Python (Spatial Libraries)</span>
+                            <span>Land Surveying</span>
+                            <span>Photogrammetry</span>
+                            <span>HTML / CSS / JS</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Education (Added Data) -->
-            <div class="info-card">
-                <h3>Education</h3>
-                <ul>
-                    <li><strong>B.Sc. CSIT</strong><br>Kathmandu University (or current institution)<br><em>Expected Graduation: 2027</em></li>
-                    <li><strong>+2 Science</strong><br>Higher Secondary School<br><em>Graduated: 2023</em></li>
-                </ul>
-            </div>
-
-            <!-- Skills (Added Data) -->
-            <div class="info-card">
-                <h3>Skills</h3>
-                <ul>
-                    <li>Frontend: HTML5, CSS3, JavaScript (ES6)</li>
-                    <li>Backend/Database: C++, Python, MySQL</li>
-                    <li>Tools: Git, GitHub, VS Code</li>
-                </ul>
+    <!-- Education Section -->
+    <section id="education" class="edu-section">
+        <div class="container">
+            <h2>Education & Details</h2>
+            <div class="edu-timeline">
+                <div class="edu-card">
+                    <h3>Bachelor in Geomatics Engineering</h3>
+                    <p class="institute">Kathmandu University</p>
+                    <p class="duration">2023 - Present</p>
+                    <p>Focusing on Geodesy, GIS analysis, satellite image processing, and digital mapping infrastructures.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact-container">
-            <div>
-                <p>Feel free to reach out if you want to collaborate on a project, ask a question, or just say hello!</p>
-                <p style="margin-top: 1rem;"><strong>Working Hours:</strong> Mon - Fri, 9 AM - 5 PM</p>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+                <!-- Info -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope"></i> avinashdutta9719@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +977 9829099719</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 28-Kilo, Dhulikhel, Nepal</p>
+                </div>
+                <!-- Form -->
+                <div class="contact-form-container">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Send Message</button>
+                    </form>
+                    <div id="form-status" class="form-status"></div>
+                </div>
             </div>
-            
-            <!-- Contact Form -->
-            <form class="contact-form" id="visitorForm">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" required placeholder="Your Name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required placeholder="Your Email Address">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="5" required placeholder="Type your message here..."></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Avinash Dutta. All Rights Reserved.</p>
+        <p>&copy; 2026 Avinash Dutta. All rights reserved.</p>
     </footer>
 
-    <!-- --- JAVASCRIPT --- -->
-    <script>
-        document.getElementById('visitorForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop page refresh
-
-            // Gather values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Simple validation alert / interaction handling
-            if(name && email && message) {
-                alert(`Thank you, ${name}! Your message has been sent successfully. (Note: Since this is hosted on GitHub Pages, look into integration options like Formspree or EmailJS to receive these entries directly to your email inbox!)`);
-                
-                // Clear the form fields
-                document.getElementById('visitorForm').reset();
-            } else {
-                alert('Please fill out all fields.');
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
