@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avinash Dutta | Portfolio</title>
+    <style>
+        /* Modern CSS Variables & Reset */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background-color: #f8fafc;
+            --text-color: #334155;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 5% 3rem 5%;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            text-align: center;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #64748b;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: #e2e8f0;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        form {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1e293b;
+            color: white;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified for pure CSS mobile */
+            .about-grid, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav>
+        <div class="logo">AD.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>Hi, I'm Avinash Dutta</h1>
+            <p>Computer Science & Engineering Student | Aspiring Developer</p>
+            <!-- Downloadable CV Link -->
+            <a href="Avinash_Dutta_CV.pdf" download="Avinash_Dutta_CV.pdf" class="btn">Download CV</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div>
+                <p>I am an enthusiastic Computer Science student currently based out of Dhulikhel. I have a deep passion for software engineering, web development, and solving complex algorithmic problems.</p>
+                <br>
+                <p>I constantly strive to bridge the gap between academic theory and real-world implementation by building practical applications.</p>
+            </div>
+            <div>
+                <h3>My Skills</h3>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML5 & CSS3</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Academic Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>E-Commerce Web App</h3>
+                <p>Built a responsive frontend for an online storefront featuring filter states, a functional shopping cart, and mock payment options using React.</p>
+            </div>
+            <div class="project-card">
+                <h3>Student Management System</h3>
+                <p>Developed a relational database application in Python and SQL to systematically store, modify, and track student academic evaluations.</p>
+            </div>
+            <div class="project-card">
+                <h3>Weather Forecast App</h3>
+                <p>Created a clean web app utilizing asynchronous JavaScript fetching real-time data integrations from third-party REST APIs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's talk about something great!</h3>
+                <p style="margin-bottom: 2rem;">Feel free to drop a message, reach out via phone, or visit me if you are around town.</p>
+                
+                <div class="info-item"><strong>📍 Address:</strong> 28-Kilo, Dhulikhel</div>
+                <div class="info-item"><strong>📞 Phone:</strong> +977 9829099719</div>
+                <div class="info-item"><strong>✉️ Email:</strong> avinashdutta9719@gmail.com</div>
+            </div>
+
+            <!-- Responsive Visitor Form -->
+            <!-- Note: Replace "your_formspree_id" with your actual Formspree endpoint token after signing up -->
+            <form action="https://formspree.io/f/your_formspree_id" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="_replyto" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Hi Avinash, I'd love to collaborate on..."></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Avinash Dutta. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
